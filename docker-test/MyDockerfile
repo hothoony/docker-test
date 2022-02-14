@@ -1,0 +1,16 @@
+FROM openjdk:11
+
+ENV MYHOME /my/home
+
+WORKDIR $MYHOME
+RUN touch $MYHOME/myfile.txt
+
+WORKDIR /aa
+COPY file1.txt /aa/file1A.txt
+
+WORKDIR /bb
+COPY file2.txt /bb/file2B.txt
+
+COPY target/myapp.jar /app/app.jar
+
+# EXPOSE 22
